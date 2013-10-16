@@ -148,7 +148,7 @@ class GFPaystationOptionsAdmin {
 			// Initialise form from stored options
 			$this->frm->paystationId = $this->plugin->options['paystationId'];
 			$this->frm->gatewayId    = $this->plugin->options['gatewayId'];
-			$this->frm->testMode     = $this->plugin->options['testMode'] ? 'Y' : 'N';
+			$this->frm->testMode     = $this->plugin->options['testMode'] == 'Y' ? 'Y' : 'N';
             $this->frm->securityHash = $this->plugin->options['securityHash'];
 		}
 

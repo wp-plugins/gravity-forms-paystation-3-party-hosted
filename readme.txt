@@ -3,7 +3,7 @@ Contributors: paystationNZ, zarockNZ
 Tags: gravityforms, gravity forms, paystation, payment gateway, payment, gateway, 3 party, hosted, credit card, credit, card, e-commerce, ecommerce, new zealand
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,8 +86,8 @@ Use your Gravity Forms Settings page to select the currency type to pass to Pays
 
 = Can I use this plugin on any shared-hosting environment? =
 
-The plugin will run in shared hosting environments, but requires PHP 5 with the following modules enabled (talk to your host).
-Both are typically available because they are enabled by default in PHP 5, but may be disabled on some shared hosts.
+The plugin will run in shared hosting environments, but requires PHP 5 with the following module enabled (talk to your host).
+This is typically available because is is enabled by default in PHP 5, but may be disabled on some shared hosts.
 
 * SimpleXML
 
@@ -105,3 +105,7 @@ Both are typically available because they are enabled by default in PHP 5, but m
 
 = 1.0.0 [2013-03-11] =
 * Original Version.
+
+= 1.1.0 [2013-10-16] =
+* Fixed a couple of bugs that prevented test mode being turned off.
+* Corrected grammar error in the readme.txt

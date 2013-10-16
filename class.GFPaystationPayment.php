@@ -140,7 +140,7 @@ class GFPaystationPayment {
         );
         
         // Now add the optional things.
-        if ($this->testMode == true) {
+        if ($this->testMode == 'Y') {
             $paramsArray['pstn_tm'] = 't';
         }
         
