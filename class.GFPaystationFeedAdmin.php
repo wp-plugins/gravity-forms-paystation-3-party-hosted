@@ -21,6 +21,7 @@ class GFPaystationFeedAdmin {
         $this->plugin = $plugin;
 
 		// Add filters and actions to hook in to admin things
+		add_filter('wp_print_scripts', array($this, 'removeScripts'));
         add_filter('parent_file', array($this, 'filterParentFile'));
 		add_action('add_meta_boxes_'.GFPAYSTATION_TYPE_FEED, array($this, 'actionAddMetaBoxes'));
 		add_action('save_post', array($this, 'saveCustomFields'), 10, 2);
@@ -31,6 +32,17 @@ class GFPaystationFeedAdmin {
 
 		// Add the feed admin javscript file to the list of files to be included in the page source.
         wp_enqueue_script('gfpaystation-feed-admin', $this->plugin->urlBase . 'js/feed-admin.js', array('jquery'), GFPAYSTATION_PLUGIN_VERSION, true);
+	}
+	
+	// ====================================================================================================================================
+	/**
+	* remove some scripts we don't want loaded
+	*/
+	// ====================================================================================================================================
+	public function removeScripts() {
+		// stop WordPress SEO breaking our tooltips!
+		wp_dequeue_script('wp-seo-metabox');
+		wp_dequeue_script('jquery-qtip');
 	}
 
 	// ====================================================================================================================================

@@ -3,12 +3,12 @@
 Plugin Name: Gravity Forms Paystation (3 party hosted)
 Plugin URI: http://www.paystation.co.nz/Definitions
 Description: Integrates Gravity Forms with the Paystation 3 party payment gateway allowing end users to purchase goods and services, or make donations, via Gravity Forms.
-Version: 1.1.0
+Version: 1.2.0
 Author: Paystation Limited
 Author URI: http://www.paystation.co.nz
 License: GPL2
 */
-/*  Copyright 2013  Paystation Limited  (email : info@paystation.co.nz)
+/*  Copyright 2014  Paystation Limited  (email : info@paystation.co.nz)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -28,7 +28,7 @@ if (!defined('GFPAYSTATION_PLUGIN_ROOT')) {
 	define('GFPAYSTATION_PLUGIN_ROOT', dirname(__FILE__) . '/');
 	define('GFPAYSTATION_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 	define('GFPAYSTATION_PLUGIN_OPTIONS', 'gfpaystation_plugin');
-	define('GFPAYSTATION_PLUGIN_VERSION', '1.1.0');
+	define('GFPAYSTATION_PLUGIN_VERSION', '1.2.0');
 
 	// Custom post types
 	define('GFPAYSTATION_TYPE_FEED', 'gfpaystation_feed');

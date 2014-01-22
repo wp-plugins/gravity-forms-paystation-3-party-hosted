@@ -2,8 +2,8 @@
 Contributors: paystationNZ, zarockNZ
 Tags: gravityforms, gravity forms, paystation, payment gateway, payment, gateway, 3 party, hosted, credit card, credit, card, e-commerce, ecommerce, new zealand
 Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 1.1.0
+Tested up to: 3.8.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,9 +103,19 @@ This is typically available because is is enabled by default in PHP 5, but may b
 
 == Changelog ==
 
-= 1.0.0 [2013-03-11] =
-* Original Version.
+= 1.2.0 [2014-01-23] =
+* Fixed issues (due to changes in Gravity Forms version 1.7) with the notifications.
+* Fixed nonce handling issue in options admin page.
+* Implimented fix to ensure that WordPress SEO does not break operation of this plugin.
 
 = 1.1.0 [2013-10-16] =
 * Fixed a couple of bugs that prevented test mode being turned off.
 * Corrected grammar error in the readme.txt
+
+= 1.0.0 [2013-03-11] =
+* Original Version.
+
+== Upgrade Notice ==
+
+= 1.2.0 =
+Users running Gravity Forms version 1.7 or greater should upgrade to ensure notifications continue to work as expected.
