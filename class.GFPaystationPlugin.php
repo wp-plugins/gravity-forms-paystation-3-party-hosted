@@ -444,7 +444,7 @@ class GFPaystationPlugin {
                         
                         // If failed then redirect the user to the failure URL, otherwise let the gravity form normal submit happen 
                         // and take the user to wherever the gravity form is supposed to go on success.
-                        if ($resultReq->errorCode !== 0) {
+                        if ($resultReq->errorCode != 0) {
                             
                             $feed = $this->getFeed($form['id']);
                             

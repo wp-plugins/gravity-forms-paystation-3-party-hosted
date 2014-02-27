@@ -3,7 +3,7 @@ Contributors: paystationNZ, zarockNZ
 Tags: gravityforms, gravity forms, paystation, payment gateway, payment, gateway, 3 party, hosted, credit card, credit, card, e-commerce, ecommerce, new zealand
 Requires at least: 3.3
 Tested up to: 3.8.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,9 @@ This is typically available because is is enabled by default in PHP 5, but may b
 7. Entry in the Gravity Forms showing successful payment.
 
 == Changelog ==
+
+= 1.2.1 [2014-02-27] =
+* Fixed bug where if a Failure URL was specified in the settings then the user would always be directed there even if the payment was successful.
 
 = 1.2.0 [2014-01-23] =
 * Fixed issues (due to changes in Gravity Forms version 1.7) with the notifications.
