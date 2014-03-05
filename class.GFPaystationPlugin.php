@@ -505,10 +505,18 @@ class GFPaystationPlugin {
                             // so we must update the status of the lead to sucess or failure and also send any responses.
                             if ($resultReq->errorCode === 0) {
                                 
-                                // Success (i.e. error code is 0).
-                                // Update some details on the lead.
-                                $lead['payment_status']   = 'Approved';
-                                $lead['payment_date']     = $resultReq->transactionTime;
+                                // Success (i.e. error code is 0). Update some details on the lead.
+                                $lead['payment_status']  = 'Approved';
+                                
+								// NOTE: the date returned is New Zealand date and time, so in order for payment date to match the date_created of the lead
+								// and also display correct in the admin part of the site, we need to convert the date to a timestamp then back out to UTC datetime.
+								$nz_timezone  = new DateTimeZone('Pacific/Auckland');
+								$nz_datetime  = new DateTime($resultReq->transactionTime, $nz_timezone);
+								$utc_datetime = gmdate('Y-m-d H:i:s', strtotime($nz_datetime->format('r')));
+								
+								$lead['payment_date'] = $utc_datetime;
+								
+								// Set remaining details.
                                 $lead['payment_amount']   = $resultReq->purchaseAmount ? ($resultReq->purchaseAmount / 100) : 0; // Need to convert back to float for saving in record.
                                 $lead['transaction_id']   = $resultReq->transactionId;
                                 $lead['transaction_type'] = 1;
