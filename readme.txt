@@ -103,7 +103,7 @@ This is typically available because is is enabled by default in PHP 5, but may b
 
 == Changelog ==
 
-= 1.2.2 [2014-03-06] =
+= 1.3.0 [2014-03-06] =
 * As requested, made it so that the payment datetime is saved as GMT / UTC time rather than New Zealand date and time so it will display correctly no matter the timezone set in the Wordpress settings.
 
 = 1.2.1 [2014-02-27] =
@@ -123,7 +123,7 @@ This is typically available because is is enabled by default in PHP 5, but may b
 
 == Upgrade Notice ==
 
-= 1.2.2 =
+= 1.3.0 =
 Note that in this upgrade the date and time of payment is now saved as UTC rather than New Zealand date and time.
 
 = 1.2.0 =

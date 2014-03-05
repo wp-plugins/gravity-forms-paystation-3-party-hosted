@@ -28,7 +28,9 @@ if (!defined('GFPAYSTATION_PLUGIN_ROOT')) {
 	define('GFPAYSTATION_PLUGIN_ROOT', dirname(__FILE__) . '/');
 	define('GFPAYSTATION_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 	define('GFPAYSTATION_PLUGIN_OPTIONS', 'gfpaystation_plugin');
-	define('GFPAYSTATION_PLUGIN_VERSION', '1.2.1');
+	
+	// ****** REMEMBER TO UPDATE THIS TOO *******
+	define('GFPAYSTATION_PLUGIN_VERSION', '1.3.0');	
 
 	// Custom post types
 	define('GFPAYSTATION_TYPE_FEED', 'gfpaystation_feed');
