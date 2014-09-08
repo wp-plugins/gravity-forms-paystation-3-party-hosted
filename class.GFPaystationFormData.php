@@ -15,6 +15,7 @@ class GFPaystationFormData {
 	public $MerchantReference;				// merchant reference
 	public $CustomerDetails;                // Optional 255 char string.
     public $OrderDetails;                   // Optional 255 char string.
+	public $PaystationOverrideId;			// Optional for overriding the paystation id in the main settings.
 
 	private $isLastPageFlag = FALSE;
 	private $isCcHiddenFlag = FALSE;

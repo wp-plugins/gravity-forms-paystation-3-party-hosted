@@ -241,18 +241,21 @@ class GFPaystationFeedAdmin {
 	public function metaboxFields($post, $metabox) {
 		wp_nonce_field(GFPAYSTATION_TYPE_FEED.'_save', GFPAYSTATION_TYPE_FEED.'_wpnonce', false, true);
 
-		$feed               = $metabox['args']['feed'];
-		$MerchantReference  = htmlspecialchars($feed->MerchantReference);
-        $CustomerDetails    = htmlspecialchars($feed->CustomerDetails);
-        $OrderDetails       = htmlspecialchars($feed->OrderDetails);
-		$fields             = $feed->FormID ? self::getFormFields($feed->FormID) : false;
+		$feed                 = $metabox['args']['feed'];
+		$MerchantReference    = htmlspecialchars($feed->MerchantReference);
+        $CustomerDetails      = htmlspecialchars($feed->CustomerDetails);
+        $OrderDetails         = htmlspecialchars($feed->OrderDetails);
+		$PaystationOverrideId = htmlspecialchars($feed->PaystationOverrideId);
+		$fields               = $feed->FormID ? self::getFormFields($feed->FormID) : false;
 
 		?>
 		<strong>Notes:</strong> 
         <p>
             All these fields are optional, but we highly recommend that you at least set the Merchant Reference to something help you identify
-            the customer, such as their email address.
-            <br />The fields you map here are displayed in your Paystation Online Admin when looking at transactions. You can also search on the Merchant Reference.
+            the customer, such as their email address. Customer details could be their name and Order details could be the name of the form.
+		</p>
+		<p>
+			The first three fields you map here are displayed in your Paystation Online Admin when looking at transactions. You can also search on the Merchant Reference.
         </p>
         <table class='gfpaystation-feed-fields gfpaystation-details'>
 			<tr>
@@ -276,6 +279,21 @@ class GFPaystationFeedAdmin {
 				<td>
 					<select size="1" name="_gfpaystation_order_details">
 						<?php if ($fields) echo self::selectFields($OrderDetails, $fields); ?>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<p>
+			<strong>Leave this field empty</strong> unless instructed otherwise. It is only used for a very specific feature to do with making the payment go in different 
+			Paystation accounts based on user selection on the form such as region, branch, country, etc. Please contact us for more details if you are interested in being able to do this.
+		</p>
+		<table class='gfpaystation-feed-fields gfpaystation-details'>
+			<tr>
+				<th>Paystation Id Override:</th>
+				<td>
+					<select size="1" name="_gfpaystation_override_id">
+						<?php if ($fields) echo self::selectFields($PaystationOverrideId, $fields); ?>
 					</select>
 				</td>
 			</tr>
@@ -331,6 +349,7 @@ class GFPaystationFeedAdmin {
 				'_gfpaystation_merchant_ref',
 				'_gfpaystation_customer_details',
                 '_gfpaystation_order_details',
+				'_gfpaystation_override_id',
 				'_gfpaystation_opt',
 				'_gfpaystation_delay_post',
 				'_gfpaystation_delay_notify',

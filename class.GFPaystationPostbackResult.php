@@ -56,9 +56,9 @@ class GFPaystationPostbackResult {
 			// Prevent XML injection attacks, and handle errors without warnings.
 			$oldDisableEntityLoader = libxml_disable_entity_loader(TRUE);
 			$oldUseInternalErrors   = libxml_use_internal_errors(TRUE);
-
+			
 			// ----------------------------------
-            // Callf unction to parse the xml.
+            // Call function to parse the xml.
             $xml = simplexml_load_string($postback);
             
 			if ($xml === false) {
@@ -100,7 +100,7 @@ class GFPaystationPostbackResult {
                 $this->requestIP                 = (string) $xml->RequestIP;
                 $this->requestUserAgent          = (string) $xml->RequestUserAgent;
                 $this->requestHttpReferrer       = (string) $xml->RequestHttpReferrer;
-                $this->paymentRequestTime        = (string) $xml->PaymentRequestTime;
+				$this->paymentRequestTime        = (string) $xml->PaymentRequestTime;
                 $this->digitalOrderTime          = (string) $xml->DigitalOrderTime;
                 $this->digitalReceiptTime        = (string) $xml->DigitalReceiptTime;
                 

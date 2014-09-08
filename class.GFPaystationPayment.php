@@ -11,16 +11,16 @@
 class GFPaystationPayment {
 	
     public $sslVerifyPeer;
-	public $paystationId;       // Paystation account id.
-	public $gatewayId;          // The Gateway id.
-	public $testMode;           // Set when in test mode.
-    public $securityHash;       // Set to string of letters and numbers, used to help verify that postback is from paystation.
-    public $merchantSession;    // Unique identification code for each transaction.
-    public $amount;             // When set in this class it should be converted to cents (so a whole number / integer).
-	public $currency;           // This is set from the gravity forms currency thing.
-	public $merchantReference;  // The merchant reference, typlically the customer's email address.
-	public $customerDetails;    // Optional 255 chars of customer detail information.
-	public $orderDetails;       // Optional 255 chars of order detail informaiton.
+	public $paystationId;         // Paystation account id form the main settings or that chosen by user input of the form. The PlaystationPlugin class will pass in the correct thing.
+	public $gatewayId;            // The Gateway id.
+	public $testMode;             // Set when in test mode.
+    public $securityHash;         // Set to string of letters and numbers, used to help verify that postback is from paystation.
+    public $merchantSession;      // Unique identification code for each transaction.
+    public $amount;               // When set in this class it should be converted to cents (so a whole number / integer).
+	public $currency;             // This is set from the gravity forms currency thing.
+	public $merchantReference;    // The merchant reference, typlically the customer's email address.
+	public $customerDetails;      // Optional 255 chars of customer detail information.
+	public $orderDetails;         // Optional 255 chars of order detail informaiton.
 
 	
 	// ====================================================================================================================================
@@ -127,7 +127,7 @@ class GFPaystationPayment {
     // ====================================================================================================================================
     protected function sendPaymentRequest($paystationUrl) {
     
-        // Put the parameters for the post in to an assotiave array.
+        // Put the parameters for the post in to an associative array.
         // First the required things.
         $paramsArray = array('paystation' => '_empty',
                              'pstn_pi' => $this->paystationId,

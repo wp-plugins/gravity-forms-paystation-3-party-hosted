@@ -329,10 +329,22 @@ class GFPaystationPlugin {
 
 		// --------------------------------------
         // Get the data posted from the form and build the payment request by creating a Paystation payment request object,
-        // setting it's properites, then calling the processPayment() method.
+        // setting it's properties, then calling the processPayment() method.
         $formData = $this->getFormData($form);
+        $paymentReq = null;
+		
+		// If a paystation override id has been specified on the form from dropdown to override etc then create new payment object with that Paystation id
+		// Otherwise default to the normal paystation_id in the main settings. This feature allows money to be paid in to different paystation accounts
+		// based on user selection of something on the form such as branch, region, country etc.
+		if ((isset($formData->PaystationOverrideId)) && ($formData->PaystationOverrideId))
+		{
+			$paymentReq = new GFPaystationPayment($formData->PaystationOverrideId, $this->options['gatewayId'], $this->options['testMode'], $this->securityHash);
+		}
+		else
+		{
+			$paymentReq = new GFPaystationPayment($this->options['paystationId'], $this->options['gatewayId'], $this->options['testMode'], $this->securityHash);
+		}
         
-        $paymentReq                     = new GFPaystationPayment($this->options['paystationId'], $this->options['gatewayId'], $this->options['testMode'], $this->securityHash);
         $paymentReq->amount             = (int) ($formData->total * 100);       // We multiply by 100 because the amount sent to the gateawy must be an int, so cents not a float.
 		$paymentReq->currency           = GFCommon::get_currency();             // Get the currency from gravity forms.
 		$paymentReq->merchantSession    = $this->buildSessionId($entry['id']);  // Call function in this class to create the merchantSession id.

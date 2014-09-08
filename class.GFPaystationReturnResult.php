@@ -33,8 +33,7 @@ class GFPaystationReturnResult {
         
         if ($params)
         {
-        
-            // Check it contains expected paystation items, it not then it is not a vlaid paystation response.
+            // Check it contains expected paystation items, it not then it is not a valid paystation response.
             if ((isset($params['ti'])) && (isset($params['ec'])) && (isset($params['em'])) && (isset($params['ms']))) {
                 $this->transactionId    = $params['ti'];
                 $this->errorCode        = $params['ec'];

@@ -22,6 +22,7 @@ class GFPaystationFeed {
 	public $MerchantReference;				// merchant reference
 	public $CustomerDetails;			    // optional string of up to 255 chars.
     public $OrderDetails;			        // optional string of up to 255 chars.
+	public $PaystationOverrideId;
     
 	protected static $fieldMap = array (
 		'FormID'				=> '_gfpaystation_form',
@@ -29,6 +30,7 @@ class GFPaystationFeed {
 		'MerchantReference'		=> '_gfpaystation_merchant_ref',
 		'CustomerDetails'	    => '_gfpaystation_customer_details',
         'OrderDetails'	        => '_gfpaystation_order_details',
+		'PaystationOverrideId'  => '_gfpaystation_override_id',
 		'Opt'					=> '_gfpaystation_opt',
 		'DelayPost'				=> '_gfpaystation_delay_post',
 		'DelayNotify'			=> '_gfpaystation_delay_notify',
@@ -101,7 +103,7 @@ class GFPaystationFeed {
 	public function getGfFieldMap() {
 		$map = array();
 
-        foreach (array('MerchantReference', 'CustomerDetails', 'OrderDetails') as $feedName) {
+        foreach (array('MerchantReference', 'CustomerDetails', 'OrderDetails', 'PaystationOverrideId') as $feedName) {
 			if (!empty($this->$feedName)) {
 				$map[(string) $this->$feedName] = $feedName;
 			}

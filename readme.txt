@@ -2,8 +2,8 @@
 Contributors: paystationNZ, zarockNZ
 Tags: gravityforms, gravity forms, paystation, payment gateway, payment, gateway, 3 party, hosted, credit card, credit, card, e-commerce, ecommerce, new zealand
 Requires at least: 3.3
-Tested up to: 3.9.0
-Stable tag: 1.3.1
+Tested up to: 4.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,10 @@ This is typically available because is is enabled by default in PHP 5, but may b
 7. Entry in the Gravity Forms showing successful payment.
 
 == Changelog ==
+
+= 1.4.0 [2014-09-09] =
+* Tested with Wordpress 4.0 and Gravity Forms 1.8.13 and eveything looks fine.
+* Added a new feature allowing payments to go in to different Paystation accounts for merchants with multiple Paystation accounts.
 
 = 1.3.1 [2014-04-29] =
 * Tested with Wordpress 3.9 and Gravity Forms 1.8.7. All good!
